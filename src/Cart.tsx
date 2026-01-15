@@ -81,7 +81,7 @@ const Cart = (props: CartProps) => {
             />
             <div className='lg:px-10 max-w-314 mx-auto px-auto flex flex-col justify-center lg:flex-row gap-7 py-5'>
                 <div className=''>
-                    <div className='lg:border rounded border-gray-200 h-auto'>
+                    <div className='lg:border rounded lg:block flex justify-center mx-auto  border-gray-200 lg:w-180 h-auto'>
                         <div className=' pl-5 lg:flex hidden items-center text-2xl w-full rounded-t h-13 bg-gray-200'>
                             Winkelwagen
                         </div>

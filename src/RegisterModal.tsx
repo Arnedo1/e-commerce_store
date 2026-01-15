@@ -53,7 +53,7 @@ const RegisterModal = (props: RegisterModalProps) => {
     return (
         <div
             onClick={() => props.setRegistreren(false)}
-            className='fixed inset-0 z-53 flex items-center justify-center bg-black/50'>
+            className='fixed inset-0 z-54 flex items-center justify-center bg-black/50'>
             <div
                 onClick={(e) => e.stopPropagation()}
                 className='md:w-120 h-full w-full bg-black/80 z-60 md:h-125 flex justify-center md:rounded-xl p-8'>
