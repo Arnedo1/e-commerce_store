@@ -94,7 +94,7 @@ const App = () => {
                                             setMobileFilter={setMobileFilter}
                                         />
                                     </div>
-                                    <div className='w-full lg:max-w-5xl'>
+                                    <div className='lg:w-200 xl:w-240'>
                                         <ProductList
                                             priceFilter={priceFilter}
                                             setPriceFilter={setPriceFilter}

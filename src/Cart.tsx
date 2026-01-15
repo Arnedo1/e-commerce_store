@@ -21,8 +21,8 @@ interface CartProps {
     setTermFilter: (value: string) => void;
     registreren: boolean;
     setRegistreren: (value: boolean) => void;
-    menuMobile:boolean
-    setMenuMobile:(value:boolean)=>void
+    menuMobile: boolean;
+    setMenuMobile: (value: boolean) => void;
 }
 
 interface CartItemList {
@@ -42,13 +42,12 @@ const Cart = (props: CartProps) => {
     const totlalUnderLine = verzending + props.priceTotal;
 
     useEffect(() => {
-    if(checkout){
-        document.body.style.overflow = 'hidden'
-    } else {
-        document.body.style.overflow = 'unset'
-    }
-    }, [checkout])
-    
+        if (checkout) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [checkout]);
 
     return (
         <div>
@@ -58,9 +57,9 @@ const Cart = (props: CartProps) => {
                     setCheckout={setCheckout}
                 />
             )}
-           <div className='hidden md:block'>
-                                <InfoBar />
-                            </div>
+            <div className='hidden md:block'>
+                <InfoBar />
+            </div>
             <MainHeader
                 totalItems={props.totalItems}
                 setTotalItems={props.setTotalItems}
@@ -73,12 +72,12 @@ const Cart = (props: CartProps) => {
                 setRegistreren={props.setRegistreren}
             />
             <CategoryNav
-                                                categoryFilter={props.categoryFilter}
-                                                setCategoryFilter={props.setCategoryFilter}
-                                                menuMobile={props.menuMobile}
-                                                setMenuMobile={props.setMenuMobile}
-                                                termFilter={props.termFilter}
-                                                setTermFilter={props.setTermFilter}
+                categoryFilter={props.categoryFilter}
+                setCategoryFilter={props.setCategoryFilter}
+                menuMobile={props.menuMobile}
+                setMenuMobile={props.setMenuMobile}
+                termFilter={props.termFilter}
+                setTermFilter={props.setTermFilter}
             />
             <div className='lg:px-10 max-w-314 mx-auto px-auto flex flex-col justify-center lg:flex-row gap-7 py-5'>
                 <div className=''>
