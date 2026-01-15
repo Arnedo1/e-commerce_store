@@ -117,7 +117,7 @@ const ProductList = (props: ProductListProps) => {
     return (
         <div>
             <button
-                onClick={() => props.setMobileFilter(true)}
+                onClick={() => props.setMobileFilter(!props.mobileFilter)}
                 className='border mx-auto border-blue-200 py-1 px-8 lg:hidden shadow-sm cursor-pointer shadow-black/20 flex  rounded-md'>
                 <p>Filter</p> <IoFilterSharp className='ml-2 mt-1' />
             </button>

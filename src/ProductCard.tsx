@@ -55,7 +55,7 @@ const ProductCard = (props: ProductCardProps) => {
             </div>
             <button
                 onClick={() => addToCart()}
-                className='h-8 w-50 active:translate-y-[0.5px] cursor-pointer shadow shadow-black/20 rounded mb-2 text-white bg-orange-500 font-semibold'>
+                className='h-8 w-50 active:translate-y-[0.5px] cursor-pointer shadow shadow-black/20 rounded mb-2 text-white translate-y-[0.2px] bg-orange-500 font-semibold'>
                 In winkelwagen
             </button>
             <div className='flex flex-col px-5 w-60 justify-center items-center mb-5'>

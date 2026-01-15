@@ -76,7 +76,7 @@ const CheckoutModal = (props: CheckoutModalProps) => {
     return (
         <div
             onClick={() => props.setCheckout(false)}
-            className='absolute top-0 z-100 left-0 bottom-0 flex items-center justify-center right-0 bg-black/50'>
+            className='fixed top-0 z-100 left-0 bottom-0 flex items-center justify-center right-0 bg-black/50'>
             <div
                 onClick={(e) => e.stopPropagation()}
                 className='md:h-210 md:w-120 w-full h-full bg-black/80 z-110 flex md:mt-8 justify-center md:rounded-xl'>

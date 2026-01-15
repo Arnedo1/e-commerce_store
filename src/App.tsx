@@ -5,7 +5,7 @@ import Filter from './Filter';
 import CategoryNav from './CategoryNav';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Cart from './Cart';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RegisterModal from './RegisterModal';
 
 interface CartItemList {
@@ -36,8 +36,16 @@ const App = () => {
     const [mobileFilter, setMobileFilter] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
 
+    useEffect(() => {
+        if (registreren) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [registreren]);
+
     return (
-        <BrowserRouter>
+        <BrowserRouter basename='/e-commerce_store/'>
             {registreren && (
                 <RegisterModal
                     registreren={registreren}
@@ -94,7 +102,9 @@ const App = () => {
                                             setCartList={setCartList}
                                             ratingFilter={ratingFilter}
                                             categoryFilter={categoryFilter}
-                                            setCategoryFilter={setCategoryFilter}
+                                            setCategoryFilter={
+                                                setCategoryFilter
+                                            }
                                             termFilter={termFilter}
                                             mobileFilter={mobileFilter}
                                             setMobileFilter={setMobileFilter}
