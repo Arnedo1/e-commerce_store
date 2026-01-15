@@ -39,7 +39,7 @@ interface CartItemList {
 const Cart = (props: CartProps) => {
     const [checkout, setCheckout] = useState<boolean>(false);
     const verzending = 7.5;
-    const totlalUnderLine = verzending + props.priceTotal;
+    const totlalUnderLine = props.priceTotal !== 0 ? verzending + props.priceTotal : 0;
 
     return (
         <div>
