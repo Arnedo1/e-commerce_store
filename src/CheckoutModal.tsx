@@ -76,10 +76,10 @@ const CheckoutModal = (props: CheckoutModalProps) => {
     return (
         <div
             onClick={() => props.setCheckout(false)}
-            className='fixed top-0 z-100 left-0 bottom-0 flex items-center justify-center right-0 bg-black/50'>
+            className='fixed top-0 z-100 left-0 bottom-0 flex items-center justify-center right-0 bg-black/50 overflow-hidden'>
             <div
                 onClick={(e) => e.stopPropagation()}
-                className='md:h-210 md:w-120 w-full h-full bg-black/80 z-110 flex md:mt-8 justify-center md:rounded-xl'>
+                className='md:h-210 md:w-120 w-full h-full bg-black/80 z-110 flex md:mt-8 justify-center md:rounded-xl overflow-y-auto'>
                 <div className='w-100 flex flex-col items-center mt-10'>
                     <p className='text-white text-3xl mb-10'>Checkout</p>
                     <div className='absolute right-10 top-10 text-white'><IoClose 

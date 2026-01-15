@@ -5,7 +5,7 @@ import MainHeader from './MainHeader';
 import CategoryNav from './CategoryNav';
 import { IoMdArrowDropleft } from 'react-icons/io';
 import { MdDone } from 'react-icons/md';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CheckoutModal from './CheckoutModal';
 
 interface CartProps {
@@ -40,14 +40,6 @@ const Cart = (props: CartProps) => {
     const [checkout, setCheckout] = useState<boolean>(false);
     const verzending = 7.5;
     const totlalUnderLine = verzending + props.priceTotal;
-
-    useEffect(() => {
-        if (checkout) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-    }, [checkout]);
 
     return (
         <div>
