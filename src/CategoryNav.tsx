@@ -23,7 +23,7 @@ const CategoryNav = (props: CategoryNavProps) => {
     }, [props.menuMobile]);
 
     return (
-        <div className='w-full lg:static sticky bg-blue-50 flex justify-center'>
+        <div className='w-full sticky top-20 bg-blue-50 flex justify-center z-40'>
             <div className=' text-blue-950 w-314 px-auto h-14 flex gap-2 relative items-center justify-between'>
                 <div className='md:hidden cursor-pointer ml-10'>
                     <RxHamburgerMenu
