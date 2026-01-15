@@ -84,9 +84,9 @@ const CheckoutModal = (props: CheckoutModalProps) => {
                     <p className='text-white text-3xl mb-10'>Checkout</p>
                     <div className='absolute right-10 top-10 text-white'><IoClose 
                     onClick={()=>props.setCheckout(false)}
-                    className='size-8 cursor-pointer'/>
+                    className='size-8 md:hidden cursor-pointer'/>
                     </div>
-                    <div className='mb-8 h-13 w-80'>
+                    <div className='mb-8  h-13 w-80'>
                         <input
                             onChange={(e) => setFirstName(e.target.value)}
                             value={firstName}
