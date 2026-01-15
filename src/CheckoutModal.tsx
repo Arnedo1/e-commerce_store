@@ -79,13 +79,16 @@ const CheckoutModal = (props: CheckoutModalProps) => {
             className='fixed top-0 z-100 left-0 bottom-0 flex items-center justify-center right-0 bg-black/50 overflow-hidden'>
             <div
                 onClick={(e) => e.stopPropagation()}
-                className='md:h-210 md:w-120 w-full h-full bg-black/80 z-110 flex md:mt-8 justify-center md:rounded-xl overflow-y-auto'>
+                className='md:h-210 md:w-120 w-full relative h-full bg-black/80 z-110 flex md:mt-8 justify-center md:rounded-xl overflow-y-auto'>
                 <div className='w-100 flex flex-col items-center mt-10'>
+                    <div className='flex justify-center  w-80'>
                     <p className='text-white text-3xl mb-10'>Checkout</p>
-                    <div className='absolute right-10 top-10 text-white'><IoClose 
+                    <div className='text-white absolute right-10 ml-20'><IoClose 
                     onClick={()=>props.setCheckout(false)}
                     className='size-8 md:hidden cursor-pointer'/>
                     </div>
+                    </div>
+                    
                     <div className='mb-8  h-13 w-80'>
                         <input
                             onChange={(e) => setFirstName(e.target.value)}
