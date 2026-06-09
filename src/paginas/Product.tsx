@@ -4,6 +4,7 @@ import { ProductContext } from '../context/ProductContext';
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { IoPersonOutline } from 'react-icons/io5';
+import logo from '../assets/logo_winkel.jpg'
 import {
     MdOutlineStarPurple500,
     MdOutlineStarHalf,
@@ -66,11 +67,7 @@ const Product = () => {
             <div className='sticky top-0 z-50 bg-white flex items-center w-full border-b border-gray-300'>
                 <div className='flex justify-between items-center mx-auto w-314'>
                     <Link to='/'>
-                        <img
-                            src='../src/assets/logo_winkel.jpg'
-                            alt='logo'
-                            className='h-20'
-                        />
+                    <img src={logo} alt='logo' className='h-20' />
                     </Link>
                     <div className='h-11 w-11 rounded-full flex items-center justify-center bg-blue-50'>
                         <IoPersonOutline

@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router';
 import { IoPersonOutline } from 'react-icons/io5';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import logo from '../assets/logo_winkel.jpg'
 
 interface Errors {
     name?: string;
@@ -53,11 +54,7 @@ const Register = () => {
             <div className='flex items-center w-full border-b border-gray-300 justify-between'>
                 <div className='flex justify-between items-center mx-auto w-314'>
                     <Link to='/'>
-                        <img
-                            src='src/assets/logo_winkel.jpg'
-                            alt='logo'
-                            className='h-20'
-                        />
+                    <img src={logo} alt='logo' className='h-20' />
                     </Link>
                     <div className='h-11 w-11 rounded-full flex items-center justify-center bg-blue-50'>
                             <IoPersonOutline

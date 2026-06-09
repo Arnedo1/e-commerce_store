@@ -4,6 +4,7 @@ import { ProductContext } from "../context/ProductContext";
 import { IoPersonOutline } from 'react-icons/io5';
 import { Link } from "react-router";
 import FavoritesItem from "../components/FavoritesItem";
+import logo from '../assets/logo_winkel.jpg'
 
 
 
@@ -26,7 +27,7 @@ const Favorites = () => {
             <div className='sticky top-0 z-50 bg-white flex items-center w-full border-b border-gray-300'>
                 <div className='flex justify-between items-center mx-auto w-314'>
                     <Link to='/'>
-                        <img src='src/assets/logo_winkel.jpg' alt='logo' className='h-20' />
+                    <img src={logo} alt='logo' className='h-20' />
                     </Link>
                     <div className='h-11 w-11 rounded-full flex items-center justify-center bg-blue-50'>
                             <IoPersonOutline
