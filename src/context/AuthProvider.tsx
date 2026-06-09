@@ -3,7 +3,7 @@ import { AuthContext } from './AuthContext';
 import type { ReactNode } from 'react';
 import type { User } from '../data/type';
 
-
+const API_URL = import.meta.env.VITE_API_URL
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [inlogModal, setInlogModal] = useState<boolean>(false);
@@ -17,7 +17,6 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
         return stored ? JSON.parse(stored) : null
     })
 
-    
     useEffect(() => {
         if (currentUser) {
             localStorage.setItem('currentUser', JSON.stringify(currentUser))
@@ -25,12 +24,11 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
             localStorage.removeItem('currentUser')
         }
     }, [currentUser])
-    
 
     useEffect(() => {
         const getUsers = async()=>{
             try {
-                const res = await fetch('http://localhost:3000/users')
+                const res = await fetch(`${API_URL}/users`)
                 const data = await res.json()
                 setUsers(data)
                 console.log(data)
@@ -43,7 +41,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const addUser = async (first_name: string, last_name: string, email: string, password: string, phone: string) => {
         try {
-            const res = await fetch('http://localhost:3000/users', {  
+            const res = await fetch(`${API_URL}/users`, {  
                 method: 'POST',  
                 headers: { 'Content-Type': 'application/json' }, 
                 body: JSON.stringify({ first_name, last_name, email, password, phone })
@@ -59,8 +57,6 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
         setCurrentUser(null)
         setUserModal(false)
     }
-    
-   
 
     return (
         <AuthContext.Provider

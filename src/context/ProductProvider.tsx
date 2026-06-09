@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState,useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { ProductContext } from './ProductContext';
 import type { ReactNode } from 'react';
 import type { Product } from '../data/type';
 import { AuthContext } from './AuthContext';
+
+const API_URL = import.meta.env.VITE_API_URL
 
 const ProductProvider = ({ children }: { children: ReactNode }) => {
     const [itemList, setItemList] = useState<Product[]>([]);
@@ -29,7 +31,7 @@ const ProductProvider = ({ children }: { children: ReactNode }) => {
         const fetchCart = async () => {
             if (!auth?.currentUser) return;
             try {
-                const res = await fetch(`http://localhost:3000/cart?user_id=${auth.currentUser.id}`);
+                const res = await fetch(`${API_URL}/cart?user_id=${auth.currentUser.id}`);
                 const cartData = await res.json();
                 console.log('cartData:', cartData);
 
@@ -63,7 +65,7 @@ const ProductProvider = ({ children }: { children: ReactNode }) => {
     const addProduct = async (product: Product, count: number) => {
         if (!auth?.currentUser) return;
         try {
-            await fetch('http://localhost:3000/cart', {
+            await fetch(`${API_URL}/cart`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -96,7 +98,7 @@ const ProductProvider = ({ children }: { children: ReactNode }) => {
     const decreseProduct = async (product: Product) => {
         if (!auth?.currentUser) return;
         try {
-            await fetch('http://localhost:3000/cart', {
+            await fetch(`${API_URL}/cart`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -122,7 +124,7 @@ const ProductProvider = ({ children }: { children: ReactNode }) => {
     const removeProduct = async (product: Product) => {
         if (!auth?.currentUser) return;
         try {
-            await fetch('http://localhost:3000/cart', {
+            await fetch(`${API_URL}/cart`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ user_id: auth.currentUser.id, product_id: product.id }),
@@ -137,7 +139,7 @@ const ProductProvider = ({ children }: { children: ReactNode }) => {
         if (!auth?.currentUser) return;
         try {
             const res = await fetch(
-                `http://localhost:3000/favorites?user_id=${auth.currentUser.id}`
+                `${API_URL}/favorites?user_id=${auth.currentUser.id}`
             );
             const data = await res.json();
 
@@ -168,7 +170,7 @@ const ProductProvider = ({ children }: { children: ReactNode }) => {
     const addFavorites = async (product: Product) => {
         if (!auth?.currentUser) return;
         try {
-            const res = await fetch('http://localhost:3000/favorites', {
+            const res = await fetch(`${API_URL}/favorites`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -186,7 +188,7 @@ const ProductProvider = ({ children }: { children: ReactNode }) => {
     const removeFavorites = async (item: Product) => {
         if (!auth?.currentUser) return;
         try {
-            const res = await fetch('http://localhost:3000/favorites', {
+            const res = await fetch(`${API_URL}/favorites`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
