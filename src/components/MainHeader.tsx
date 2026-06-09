@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { ProductContext } from '../context/ProductContext';
+import logo from '../assets/logo_winkel.jpg'
 
 const MainHeader = () => {
     const auth = useContext(AuthContext);
@@ -19,11 +20,7 @@ const MainHeader = () => {
             <div className='w-314 flex items-center justify-between px-4 lg:px-10 text-blue-950'>
                 
                 <Link to='/'>
-                    <img
-                        src='src/assets/logo_winkel.jpg'
-                        alt='logo'
-                        className='h-20'
-                    />
+                <img src={logo} alt='logo' className='h-20' />
                 </Link>
 
                 <div className='hidden md:flex items-center bg-blue-50 min-w-80 h-13 rounded-4xl px-2'>
