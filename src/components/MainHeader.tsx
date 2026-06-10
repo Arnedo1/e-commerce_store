@@ -8,7 +8,7 @@ import {
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import { ProductContext } from '../context/ProductContext';
-import logo from '../assets/logo_winkel.jpg'
+import logo from '../assets/logo_winkel.jpg';
 
 const MainHeader = () => {
     const auth = useContext(AuthContext);
@@ -18,9 +18,12 @@ const MainHeader = () => {
     return (
         <div className='h-20 sticky top-11 z-50 w-full bg-white flex justify-center items-center'>
             <div className='w-314 flex items-center justify-between px-4 lg:px-10 text-blue-950'>
-                
                 <Link to='/'>
-                <img src={logo} alt='logo' className='h-20' />
+                    <img
+                        src={logo}
+                        alt='logo'
+                        className='h-20'
+                    />
                 </Link>
 
                 <div className='hidden md:flex items-center bg-blue-50 min-w-80 h-13 rounded-4xl px-2'>
@@ -36,7 +39,6 @@ const MainHeader = () => {
                 </div>
 
                 <div className='flex items-center gap-4'>
-                    
                     <div className='relative'>
                         <div className='h-11 w-11 rounded-full flex items-center justify-center bg-blue-50'>
                             <IoPersonOutline
@@ -54,18 +56,26 @@ const MainHeader = () => {
                     </div>
 
                     <div className='relative'>
-                        <Link to='/favorites'>
-                            <div className='h-11 w-11 rounded-full flex items-center justify-center bg-blue-50'>
-                                <IoHeartOutline className='size-6 cursor-pointer' />
-                            </div>
-                            <div className='absolute -top-1 -right-1 h-5 w-5 rounded-full bg-gray-400 text-white text-xs flex justify-center items-center'>
-                                {product.favoritesItems.length}
-                            </div>
-                        </Link>
+                        <div
+                            onClick={() =>
+                                !auth.currentUser && auth.setInlogModal(true)
+                            }>
+                            <Link to={auth.currentUser ? '/favorites' : ''}>
+                                <div className='h-11 w-11 rounded-full flex items-center justify-center bg-blue-50'>
+                                    <IoHeartOutline className='size-6 cursor-pointer' />
+                                </div>
+                                <div className='absolute -top-1 -right-1 h-5 w-5 rounded-full bg-gray-400 text-white text-xs flex justify-center items-center'>
+                                    {product.favoritesItems.length}
+                                </div>
+                            </Link>
+                        </div>
                     </div>
 
                     <div className='relative'>
-                        <Link to='/Cart'>
+                        <div onClick={() =>
+                                !auth.currentUser && auth.setInlogModal(true)
+                            }>
+                        <Link to={auth.currentUser ? '/cart' : ''}>
                             <div className='h-11 w-11 rounded-full flex items-center justify-center bg-blue-50'>
                                 <IoBagHandleOutline className='size-6 cursor-pointer' />
                             </div>
@@ -75,6 +85,7 @@ const MainHeader = () => {
                                 (acc, item) => item.quantity + acc,
                                 0
                             )}
+                        </div>
                         </div>
                     </div>
                 </div>

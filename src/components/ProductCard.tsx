@@ -5,12 +5,14 @@ import { Link } from 'react-router';
 import { ProductContext } from '../context/ProductContext';
 import { useContext } from 'react';
 import { IoMdHeart } from "react-icons/io";
+import { AuthContext } from '../context/AuthContext';
 
 
 const ProductCard = ({ item }: { item: Product }) => {
     const discount = (item.price * item.discountPercentage) / 100;
     const discountprice = item.price - discount;
     const product = useContext(ProductContext)
+    const auth = useContext(AuthContext)
 
     return (
         <div className='flex flex-col w-60 m-4'>
@@ -31,7 +33,7 @@ const ProductCard = ({ item }: { item: Product }) => {
                     /> 
                     
                     : <IoMdHeartEmpty
-                        onClick={() => product.addFavorites(item)}
+                        onClick={() => auth.currentUser ? product.addFavorites(item) : auth.setInlogModal(true)}
                         className='size-5 text-gray-400 hover:text-red-400 transition-colors'
                     />}
                     

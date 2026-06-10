@@ -56,6 +56,8 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     const logout = () => {
         setCurrentUser(null)
         setUserModal(false)
+        setUserExists(false);
+        setInlogEmail('')
     }
 
     return (

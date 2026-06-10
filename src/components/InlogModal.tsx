@@ -1,8 +1,9 @@
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
 const InlogModal = () => {
+    const [error, setError] = useState<string>('')
     const auth = useContext(AuthContext);
     const nav = useNavigate();
     
@@ -28,8 +29,9 @@ const InlogModal = () => {
             auth.setCurrentUser(user);
             auth.setInlogModal(false);
             auth.setInlogPassword('');
+            setError('');
         } else {
-            console.log('Verkeerd wachtwoord');
+            setError('Verkeerd wachtwoord');
         }
     };
 
@@ -53,10 +55,13 @@ const InlogModal = () => {
             <div className='border h-15 mt-2 border-gray-300'>
                 {!auth.userExists ? (
                     <input
-                        onChange={(e) => auth.setInlogEmail(e.target.value)}
+                        onChange={(e) => auth.setInlogEmail(e.target.value.toLowerCase())}
                         value={auth.inlogEmail}
                         placeholder='E-mailadres'
                         className='h-full w-full pl-2 focus:outline-none'
+                        onKeyDown={(e)=>e.key === 'Enter' && validate(auth.inlogEmail)
+                            
+                    }
                     />
                 ) : (
                     <input
@@ -65,9 +70,13 @@ const InlogModal = () => {
                         placeholder='Wachtwoord'
                         type='password'
                         className='h-full w-full pl-2 focus:outline-none'
+                        onKeyDown={(e)=>e.key === 'Enter' && login(auth.inlogPassword)}
                     />
                 )}
             </div>
+            <div>
+            </div>
+            
             <div>
                 <button
                     onClick={() =>
@@ -75,9 +84,11 @@ const InlogModal = () => {
                             ? validate(auth.inlogEmail)
                             : login(auth.inlogPassword)
                     }
-                    className='h-15 w-full bg-black text-white font-semibold hover:bg-gray-800'>
+                    className='h-15 w-full bg-black text-white font-semibold cursor-pointer hover:bg-gray-800'>
                     DOORGAAN
                 </button>
+                <div className='text-red-500 text-[13px] h-4 mt-2'>{error}</div>
+                
             </div>
             {!auth.userExists &&
             <div className='text-[14px] flex mx-auto'>

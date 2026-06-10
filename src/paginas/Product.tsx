@@ -167,25 +167,29 @@ const Product = () => {
                                 </div>
                             </div>
                             <button
-                                onClick={() => {
-                                    if (!count) {
-                                        product.addProduct(item, 1);
-                                    } else {
-                                        product.addProduct(item, count);
-                                    }
-                                    setCount(0);
-                                    product.setAddToCartModal(true);
-                                }}
+                               onClick={() => {
+                                if (!auth.currentUser) {
+                                    auth.setInlogModal(true);
+                                    return;
+                                }
+                                if (!count) {
+                                    product.addProduct(item, 1);
+                                } else {
+                                    product.addProduct(item, count);
+                                }
+                                setCount(0);
+                                product.setAddToCartModal(true);
+                            }}
                                 className='flex-1 h-10 bg-blue-950 text-white font-semibold hover:bg-blue-900 active:translate-y-px transition-all cursor-pointer text-sm'>
                                 ADD TO CART
                             </button>
                         </div>
 
                         <button
-                            onClick={() =>
+                            onClick={() => auth.currentUser ?
                                 isFavorite
                                     ? product.removeFavorites(item)
-                                    : product.addFavorites(item)
+                                    : product.addFavorites(item) : auth.setInlogModal(true)
                             }
                             className='w-full h-10 border rounded-4xl border-blue-950 text-blue-950 flex items-center justify-center gap-2 hover:bg-blue-50 cursor-pointer transition-colors'>
                             {isFavorite ? (

@@ -87,6 +87,7 @@ const Register = () => {
                             placeholder='Enter your first name'
                             className='border pl-3 h-11 focus:outline-none focus:border-blue-950'
                             type='text'
+                            onKeyDown={(e)=>e.key === 'Enter' && handleSubmit()}
                         />
                         {errors?.name && (
                             <div className='text-red-500 text-xs'>
@@ -103,6 +104,7 @@ const Register = () => {
                             placeholder='Enter your last name'
                             className='border pl-3 h-11 focus:outline-none focus:border-blue-950'
                             type='text'
+                            onKeyDown={(e)=>e.key === 'Enter' && handleSubmit()}
                         />
                         {errors?.lastName && (
                             <div className='text-red-500 text-xs'>
@@ -114,11 +116,12 @@ const Register = () => {
                     <div className='flex flex-col gap-1'>
                         <label className='text-sm'>Email address *</label>
                         <input
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value.toLowerCase())}
                             value={email}
                             placeholder='Enter your email'
                             className='border pl-3 h-11 focus:outline-none focus:border-blue-950'
                             type='email'
+                            onKeyDown={(e)=>e.key === 'Enter' && handleSubmit()}
                         />
                         {errors?.email && (
                             <div className='text-red-500 text-xs'>
@@ -135,6 +138,7 @@ const Register = () => {
                             placeholder='Enter your phone number'
                             className='border pl-3 h-11 focus:outline-none focus:border-blue-950'
                             type='tel'
+                            onKeyDown={(e)=>e.key === 'Enter' && handleSubmit()}
                         />
                     </div>
 
@@ -146,6 +150,7 @@ const Register = () => {
                             placeholder='Enter your password'
                             className='border pl-3 h-11 focus:outline-none focus:border-blue-950'
                             type='password'
+                            onKeyDown={(e)=>e.key === 'Enter' && handleSubmit()}
                         />
                         {errors?.password && (
                             <div className='text-red-500 text-xs'>
@@ -162,6 +167,7 @@ const Register = () => {
                             placeholder='Confirm your password'
                             className='border pl-3 h-11 focus:outline-none focus:border-blue-950'
                             type='password'
+                            onKeyDown={(e)=>e.key === 'Enter' && handleSubmit()}
                         />
                         {errors?.confirmPassword && (
                             <div className='text-red-500 text-xs'>
