@@ -174,5 +174,5 @@ This is a portfolio project built for learning purposes. No real orders are proc
 ## Author
 
 **Jose Arnedo**  
-Self-taught developer | React · TypeScript · Node.js · PostgreSQL  
+Bachelor Informatica student (Open Universiteit Nederland) | React · TypeScript · Node.js · PostgreSQL
 [GitLab](https://gitlab.com/arnedo1-group)
