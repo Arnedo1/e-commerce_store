@@ -10,7 +10,7 @@ const HeaderCategoryFilter = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
 
     return (
-        <div className='w-full lg:static sticky top-16 md:top-20 bg-blue-50 flex flex-col justify-center z-40'>
+        <div className='w-full lg:static sticky top-27 md:top-31 bg-blue-50 flex flex-col justify-center z-40'>
             <div className='text-blue-950 w-full max-w-7xl mx-auto px-4 h-14 flex gap-2 relative items-center justify-between'>
                 
                 {/* Mobile: hamburger + zoek */}

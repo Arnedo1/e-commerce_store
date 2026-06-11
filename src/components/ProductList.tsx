@@ -51,7 +51,7 @@ const ProductList = () => {
                 <Filter />
             </div>
 
-            <div className='sticky mt-5 top-30 z-40 w-fit mx-auto '>
+            <div className='sticky mt-5 lg:top-30 md:top-50 top-45 z-40 w-fit mx-auto '>
                 <IoFilter
                     onClick={() => product.setFilter(!product.filter)}
                     className='size-6 md:size-7 text-gray-600 cursor-pointer hover:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]'
