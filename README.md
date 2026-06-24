@@ -59,7 +59,7 @@ A fully functional e-commerce web application built as a portfolio project, demo
 - Frontend: Render Static Site
 - Backend: Render Web Service
 - Database: Render PostgreSQL
-- Version control: GitLab
+- Version control: GitHub
 
 ---
 
@@ -175,4 +175,4 @@ This is a portfolio project built for learning purposes. No real orders are proc
 
 **Jose Arnedo**  
 Bachelor Informatica student (Open Universiteit Nederland) | React · TypeScript · Node.js · PostgreSQL
-[GitLab](https://gitlab.com/arnedo1-group)
+[GitHub](https://github.com/Arnedo1)
