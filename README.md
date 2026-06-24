@@ -124,7 +124,7 @@ CREATE TABLE favorites (
 
 ```bash
 # Clone the repository
-git clone https://gitlab.com/arnedo1-group/e-commerce.git
+git clone https://github.com/Arnedo1/e-commerce_store.git
 cd e-commerce
 
 # Install frontend dependencies
